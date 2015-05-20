@@ -52,10 +52,7 @@ Feature: making http requests
 
     @https
     Scenario: I want to make a HTTPS Request
-        Given I set property cert to file customer-client.crt
-        Given I set property key to file customer-client.key
-        And I set property req.agentOptions.cert to property cert
-        And I set property req.agentOptions.key to property key
+        Given I secure the connection with certificate file customer-client.crt and with key file customer-client.key
         When I send a GET request to https://localhost:8081/foo
         Then the response status code is 200
 
