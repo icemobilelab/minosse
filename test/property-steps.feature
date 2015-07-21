@@ -79,6 +79,7 @@ Feature: setting and checking properties
         And [TEST] I set end to 'bar'
         Then I check property total equals templateString foo{end}
 
+    @test
     Scenario Outline: Checking containers properties
         When [TEST] I set <property> to <actual value>
         Then I check property <property> contains an object with a property named <property name> of <expected type> <expected value>
