@@ -11,7 +11,7 @@ var argv = minimist(process.argv.slice(2));
 require('gulp-help')(gulp);
 
 gulp.task('test', 'Run all tests.', function(cb) {
-    runSequence('lint',
+    runSequence( 'lint',
                 'setup-istanbul',
                 'test-cucumber',
                 'report-istanbul',

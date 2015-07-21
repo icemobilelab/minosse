@@ -39,6 +39,11 @@ Feature: setting and checking properties
         When I set property total to templateString foo{end}
         Then [TEST] I assert property total equals 'foobar'
 
+    Scenario: Setting a property to the value of another property
+        Given [TEST] I set bar to 42
+        When I set property foo to property bar
+        Then [TEST] I assert property foo equals 42
+
     Scenario Outline: Checking a property
         When [TEST] I set <property> to <actual value>
         Then I check property <property> equals <expected type> <expected value>
@@ -74,10 +79,16 @@ Feature: setting and checking properties
         And [TEST] I set end to 'bar'
         Then I check property total equals templateString foo{end}
 
-    Scenario: Setting a property to the value of another property
-        Given [TEST] I set bar to 42
-        When I set property foo to property bar
-        Then [TEST] I assert property foo equals 42
+    Scenario Outline: Checking containers properties
+        When [TEST] I set <property> to <actual value>
+        Then I check property <property> contains an object with a property named <property name> of <expected type> <expected value>
+
+        Examples:
+            | property     | actual value                                                   | property name | expected type | expected value |
+            | foo          | [{'name': 'fred', 'age': 12}, {'name': 'john', 'age': 32}]     | name          | string        | john           |
+            | foo          | [{'name': 'fred', 'age': 12}, {'name': 'john', 'age': 32}]     | age           | number        | 12             |
+            | foo          | [{'name': 'fred', 'alive': true}, {'name': 'john', 'age': 32}] | alive         | boolean       | true           |
+
 
     Scenario: Comparing if two attributes are equal
         When [TEST] I set bar to 42
