@@ -22,8 +22,8 @@
   "homepage": "https://github.com/icemobilelab/minosse",
   "dependencies": {
     "body-parser": "^1.12.2",
-    "cucumber": "^0.7.0",
+    "cucumber": "0.4.9",
     "express": "^4.12.2",
-    "minosse": "*"
+    "minosse": "file:../"
   }
 }
