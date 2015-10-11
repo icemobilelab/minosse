@@ -2,7 +2,7 @@ var path = require('path');
 
 module.exports = function myCustomSteps() {
     require('minosse').call(this);
-    this.Before(function loadTestConfig(done) {
+    this.Before(function loadTestConfig(scenario, done) {
         // minosse checks for `testConfig` for framework configuration
         this.testConfig = {
             // look here for request configs
