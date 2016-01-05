@@ -191,3 +191,13 @@ Feature: setting and checking properties
     Scenario: Using a custom formatter
         Given [TEST] I set foo to 12
         When I check property foo has format even
+
+    Scenario: Checking array members are same
+        Given [TEST] I set actualArray to ['minosse', 'member', 42, 'comparison', 'test']
+        And [TEST] I set expectedArray to ['comparison', 'test', 42, 'member', 'minosse']
+        Then I check property actualArray only contains the members of property expectedArray
+
+    Scenario: Checking array members are included
+        Given [TEST] I set actualArray to ['git', 43, 'minosse', 42, 'member', 'foo', 'bar', 'comparison', 'test']
+        And [TEST] I set expectedArray to ['comparison', 'test', 42, 'member', 'minosse']
+        Then I check property actualArray contains the members of property expectedArray
