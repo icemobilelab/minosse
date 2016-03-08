@@ -1,6 +1,6 @@
 {
   "name": "minosse",
-  "version": "1.9.0",
+  "version": "1.9.1",
   "description": "Common test steps for testing api's.",
   "main": "lib/steps.js",
   "scripts": {
