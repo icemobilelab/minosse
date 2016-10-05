@@ -1,4 +1,4 @@
-## Minosse exaple project
+## Minosse example project
 The goal of this mini project is to show the usage of Minosse as testing framework for your API.
 In order to do that we have created a simple API with [ExpressJS](http://expressjs.com/) that expose
 4 endpoints:
